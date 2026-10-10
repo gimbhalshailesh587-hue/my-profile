@@ -584,6 +584,7 @@
             border-radius: 50%;
             z-index: 10000;
             pointer-events: none;
+            transition: opacity 0.3s ease;
         }
 
         .cursor-outline {
@@ -596,6 +597,14 @@
             border-radius: 50%;
             z-index: 9999;
             pointer-events: none;
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cursor-outline.hover {
+            width: 70px;
+            height: 70px;
+            background-color: var(--glow);
+            border-color: transparent;
         }
 
         /* Modal Styles */
@@ -1048,6 +1057,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             const cursorDot = document.querySelector('.cursor-dot');
             const cursorOutline = document.querySelector('.cursor-outline');
+            const clickables = document.querySelectorAll('a, button, .project-card, .menu-toggle, .social-icon, .modal-close');
 
             window.addEventListener('mousemove', function(e) {
                 const posX = e.clientX;
@@ -1056,10 +1066,23 @@
                 cursorDot.style.left = `${posX}px`;
                 cursorDot.style.top = `${posY}px`;
 
+                // Quicker, snappier following animation
                 cursorOutline.animate({
                     left: `${posX}px`,
                     top: `${posY}px`
-                }, { duration: 500, fill: "forwards" });
+                }, { duration: 250, fill: "forwards", easing: "ease-out" });
+            });
+
+            // Add hover effects for clickable elements
+            clickables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursorOutline.classList.add('hover');
+                    cursorDot.style.opacity = '0'; // Hide dot on hover
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursorOutline.classList.remove('hover');
+                    cursorDot.style.opacity = '1';
+                });
             });
         });
     </script>
