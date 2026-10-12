@@ -1089,47 +1089,358 @@
             background: rgba(34, 197, 94, 0.1);
         }
 
-        /* Contact Section */
+        /* Contact Section & App Profiles */
         .contact-container {
-            max-width: 800px;
+            max-width: 960px;
             margin: 0 auto;
             text-align: center;
         }
 
         .contact-box {
-            background: var(--card-bg);
-            padding: 4rem;
-            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(12, 16, 20, 0.9));
+            padding: 3.5rem 2.8rem;
+            border-radius: 28px;
             border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-links {
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+        }
+
+        .contact-box h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 auto 2.2rem auto;
+            line-height: 1.65;
+        }
+
+        /* Direct Email Highlight Card */
+        .email-banner-card {
+            background: rgba(34, 197, 94, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.08);
+            transition: var(--transition);
         }
 
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+        .email-banner-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 15px 35px rgba(34, 197, 94, 0.16);
+            transform: translateY(-2px);
+        }
+
+        .email-info {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .email-icon-badge {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(234, 67, 53, 0.2), rgba(234, 67, 53, 0.05));
+            border: 1px solid rgba(234, 67, 53, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: var(--transition);
-            border: 1px solid var(--card-border);
+            font-size: 1.5rem;
+            color: #ea4335;
+            flex-shrink: 0;
         }
 
-        .social-icon:hover {
+        .email-texts span {
+            display: block;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .email-texts a {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            transition: var(--transition);
+            word-break: break-all;
+        }
+
+        .email-texts a:hover {
+            color: var(--accent-primary);
+        }
+
+        .email-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .btn-copy-email {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--card-border);
+            color: #ffffff;
+            padding: 0.65rem 1.1rem;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .btn-copy-email:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: #ffffff;
+        }
+
+        .btn-send-email {
             background: var(--accent-primary);
+            border: 1px solid var(--accent-primary);
+            color: #000000;
+            padding: 0.65rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .btn-send-email:hover {
+            background: #16a34a;
+            box-shadow: 0 0 20px var(--glow);
+            transform: translateY(-2px);
+        }
+
+        /* Apps & Profiles Grid */
+        .apps-section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.25rem;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .apps-section-title i {
+            color: var(--accent-primary);
+        }
+
+        .app-profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            text-align: left;
+        }
+
+        .app-profile-card {
+            background: rgba(15, 20, 25, 0.75);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 1.25rem 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-profile-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: transparent;
+            transition: var(--transition);
+        }
+
+        .app-profile-card:hover {
             transform: translateY(-5px);
+            background: rgba(22, 28, 36, 0.95);
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Platform specific styling */
+        .app-profile-card.card-instagram:hover::after {
+            background: linear-gradient(90deg, #f09433, #dc2743, #bc1888);
+        }
+        .app-profile-card.card-github:hover::after {
+            background: #ffffff;
+        }
+        .app-profile-card.card-twitter:hover::after {
+            background: #1da1f2;
+        }
+        .app-profile-card.card-indeed:hover::after {
+            background: #2164f4;
+        }
+        .app-profile-card.card-linkedin:hover::after {
+            background: #0a66c2;
+        }
+        .app-profile-card.card-gmail:hover::after {
+            background: #ea4335;
+        }
+
+        .app-card-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .app-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+        }
+
+        .card-instagram .app-icon {
+            color: #e1306c;
+            background: rgba(225, 48, 108, 0.1);
+            border-color: rgba(225, 48, 108, 0.25);
+        }
+        .card-github .app-icon {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .card-twitter .app-icon {
+            color: #1da1f2;
+            background: rgba(29, 161, 242, 0.1);
+            border-color: rgba(29, 161, 242, 0.25);
+        }
+        .card-indeed .app-icon {
+            color: #2164f4;
+            background: rgba(33, 100, 244, 0.1);
+            border-color: rgba(33, 100, 244, 0.25);
+        }
+        .card-linkedin .app-icon {
+            color: #0a66c2;
+            background: rgba(10, 102, 194, 0.1);
+            border-color: rgba(10, 102, 194, 0.25);
+        }
+        .card-gmail .app-icon {
+            color: #ea4335;
+            background: rgba(234, 67, 53, 0.1);
+            border-color: rgba(234, 67, 53, 0.25);
+        }
+
+        .app-details h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.15rem;
+        }
+
+        .app-handle {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .app-action-arrow {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .app-profile-card:hover .app-action-arrow {
+            color: #ffffff;
+            background: var(--accent-primary);
             border-color: var(--accent-primary);
+            transform: translate(2px, -2px);
+        }
+
+        /* Copy Toast */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #111827;
+            border: 1px solid var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--glow);
+            color: #ffffff;
+            padding: 0.8rem 1.6rem;
+            border-radius: 9999px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            z-index: 99999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast-notification i {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
         }
 
         /* Footer */
@@ -1236,7 +1547,33 @@
             }
 
             .contact-box {
-                padding: 2rem;
+                padding: 2.2rem 1.25rem;
+            }
+
+            .email-banner-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.3rem;
+                gap: 1.2rem;
+            }
+
+            .email-actions {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 0.6rem;
+            }
+
+            .btn-copy-email,
+            .btn-send-email {
+                flex: 1;
+                justify-content: center;
+                padding: 0.65rem 0.5rem;
+                font-size: 0.82rem;
+            }
+
+            .app-profiles-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1392,10 +1729,12 @@
 
                     <div class="hero-socials">
                         <span class="socials-label">Connect:</span>
-                        <a href="#" class="hero-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="hero-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="hero-social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="mailto:hello@example.com" class="hero-social-link" aria-label="Email"><i class="fas fa-paper-plane"></i></a>
+                        <a href="https://github.com/gimbhalshailesh587-hue" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="GitHub (@gimbhalshailesh587-hue)" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="Instagram (@gimbhalshailesh587)" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/gimbhalshailesh" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="Twitter (@gimbhalshailesh)" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://profile.indeed.com/" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="Indeed Profile" aria-label="Indeed"><i class="fab fa-indeed"></i></a>
+                        <a href="https://www.linkedin.com/in/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="LinkedIn Profile" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:gimbhalshailesh587@gmail.com" class="hero-social-link" title="Direct Email: gimbhalshailesh587@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
 
@@ -1675,17 +2014,135 @@
             <div class="contact-container">
                 <div class="contact-box">
                     <h2>Let's Work Together</h2>
-                    <p>I'm currently available for freelance work and open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                    
-                    <a href="mailto:hello@example.com" class="btn btn-primary" style="margin-top: 1rem;">
-                        <i class="fas fa-envelope"></i> Say Hello
-                    </a>
+                    <p class="contact-description">
+                        I am open to computer engineering internships, frontend web development roles, and exciting collaborations. Connect directly via my official Gmail or tap on any app below to view my direct profile!
+                    </p>
 
-                    <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <!-- Direct Gmail Highlight Card -->
+                    <div class="email-banner-card">
+                        <div class="email-info">
+                            <div class="email-icon-badge">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="email-texts">
+                                <span>Official Direct Email</span>
+                                <a href="mailto:gimbhalshailesh587@gmail.com" id="emailAddressText">gimbhalshailesh587@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="email-actions">
+                            <button type="button" class="btn-copy-email" id="btnCopyEmail" title="Copy email address" onclick="copyEmailToClipboard()">
+                                <i class="far fa-copy" id="copyIcon"></i>
+                                <span id="copyText">Copy Email</span>
+                            </button>
+                            <a href="mailto:gimbhalshailesh587@gmail.com" class="btn-send-email">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Mail</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Direct App Profiles Header & Grid -->
+                    <div class="apps-section-title">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Direct App Profiles</span>
+                    </div>
+
+                    <div class="app-profiles-grid">
+                        <!-- Instagram App -->
+                        <a href="https://www.instagram.com/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="app-profile-card card-instagram" aria-label="Instagram Profile (@gimbhalshailesh587)">
+                            <div class="app-card-left">
+                                <div class="app-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div class="app-details">
+                                    <h3>Instagram</h3>
+                                    <div class="app-handle">@gimbhalshailesh587</div>
+                                </div>
+                            </div>
+                            <div class="app-action-arrow">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+
+                        <!-- GitHub App -->
+                        <a href="https://github.com/gimbhalshailesh587-hue" target="_blank" rel="noopener noreferrer" class="app-profile-card card-github" aria-label="GitHub Profile (@gimbhalshailesh587-hue)">
+                            <div class="app-card-left">
+                                <div class="app-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="app-details">
+                                    <h3>GitHub</h3>
+                                    <div class="app-handle">@gimbhalshailesh587-hue</div>
+                                </div>
+                            </div>
+                            <div class="app-action-arrow">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+
+                        <!-- Twitter / X App -->
+                        <a href="https://twitter.com/gimbhalshailesh" target="_blank" rel="noopener noreferrer" class="app-profile-card card-twitter" aria-label="Twitter Profile (@gimbhalshailesh)">
+                            <div class="app-card-left">
+                                <div class="app-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <div class="app-details">
+                                    <h3>Twitter (X)</h3>
+                                    <div class="app-handle">@gimbhalshailesh</div>
+                                </div>
+                            </div>
+                            <div class="app-action-arrow">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+
+                        <!-- Indeed App -->
+                        <a href="https://profile.indeed.com/" target="_blank" rel="noopener noreferrer" class="app-profile-card card-indeed" aria-label="Indeed Profile">
+                            <div class="app-card-left">
+                                <div class="app-icon">
+                                    <i class="fab fa-indeed"></i>
+                                </div>
+                                <div class="app-details">
+                                    <h3>Indeed</h3>
+                                    <div class="app-handle">Shailesh Gimbhal</div>
+                                </div>
+                            </div>
+                            <div class="app-action-arrow">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+
+                        <!-- LinkedIn App -->
+                        <a href="https://www.linkedin.com/in/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="app-profile-card card-linkedin" aria-label="LinkedIn Profile">
+                            <div class="app-card-left">
+                                <div class="app-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <div class="app-details">
+                                    <h3>LinkedIn</h3>
+                                    <div class="app-handle">Shailesh Gimbhal</div>
+                                </div>
+                            </div>
+                            <div class="app-action-arrow">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+
+                        <!-- Gmail App -->
+                        <a href="mailto:gimbhalshailesh587@gmail.com" class="app-profile-card card-gmail" aria-label="Gmail Direct (gimbhalshailesh587@gmail.com)">
+                            <div class="app-card-left">
+                                <div class="app-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="app-details">
+                                    <h3>Gmail Direct</h3>
+                                    <div class="app-handle">gimbhalshailesh587@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="app-action-arrow">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1694,8 +2151,17 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Shailesh Gimbhal. Designed & Built with passion.</p>
+        <p>&copy; 2026 Shailesh Gimbhal. Designed &amp; Built with passion.</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #a1a1aa;">
+            Email: <a href="mailto:gimbhalshailesh587@gmail.com" style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">gimbhalshailesh587@gmail.com</a>
+        </p>
     </footer>
+
+    <!-- Toast Notification for Copy Email -->
+    <div id="toastNotification" class="toast-notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Email copied to clipboard!</span>
+    </div>
 
 
 
@@ -1806,11 +2272,59 @@
             }, 600);
         });
 
+        // Copy Email to Clipboard Function
+        function copyEmailToClipboard() {
+            const email = "gimbhalshailesh587@gmail.com";
+            const toast = document.getElementById('toastNotification');
+            const copyText = document.getElementById('copyText');
+            const copyIcon = document.getElementById('copyIcon');
+
+            function showSuccess() {
+                if (copyText) copyText.textContent = "Copied!";
+                if (copyIcon) copyIcon.className = "fas fa-check";
+                if (toast) {
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 3000);
+                }
+                setTimeout(() => {
+                    if (copyText) copyText.textContent = "Copy Email";
+                    if (copyIcon) copyIcon.className = "far fa-copy";
+                }, 2500);
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email)
+                    .then(showSuccess)
+                    .catch(() => fallbackCopy(email, showSuccess));
+            } else {
+                fallbackCopy(email, showSuccess);
+            }
+        }
+
+        function fallbackCopy(text, callback) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            tempInput.focus();
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                if (callback) callback();
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
         // Custom Cursor Animation
         window.addEventListener('DOMContentLoaded', () => {
             const cursorDot = document.querySelector('.cursor-dot');
             const cursorOutline = document.querySelector('.cursor-outline');
-            const clickables = document.querySelectorAll('a, button, .social-icon, .brand-logo, .btn-nav-cta, .hero-social-link, .floating-badge, .quick-chip, .tech-detail-card');
+            const clickables = document.querySelectorAll('a, button, .social-icon, .brand-logo, .btn-nav-cta, .hero-social-link, .floating-badge, .quick-chip, .tech-detail-card, .app-profile-card, .btn-copy-email, .btn-send-email');
 
             window.addEventListener('mousemove', function(e) {
                 const posX = e.clientX;
