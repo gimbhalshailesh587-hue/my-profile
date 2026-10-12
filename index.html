@@ -644,190 +644,445 @@
             transform: translateY(-3px);
         }
 
-        /* About Section */
+        /* About Section & Education Timeline */
         #about {
             background-color: var(--bg-secondary);
+            position: relative;
         }
 
-        .about-content {
+        .about-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3.5rem;
+            align-items: flex-start;
         }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
+        .about-intro-card {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 16px;
             border: 1px solid var(--card-border);
-            text-align: center;
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             transition: var(--transition);
         }
 
-        .stat-item:hover {
+        .about-intro-card:hover {
+            border-color: rgba(34, 197, 94, 0.4);
             transform: translateY(-5px);
-            border-color: var(--accent-primary);
         }
 
-        .stat-num {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .about-intro-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .intro-avatar-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(16, 185, 129, 0.1));
+            border: 1.5px solid rgba(34, 197, 94, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
             color: var(--accent-primary);
-            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
+            flex-shrink: 0;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
+        .intro-name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+        }
+
+        .intro-tagline {
+            font-size: 0.92rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .about-bio-text {
             color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.3rem;
+        }
+
+        .about-bio-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .about-quick-chips {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .quick-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 0.65rem 1rem;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .quick-chip:hover {
+            background: rgba(34, 197, 94, 0.08);
+            border-color: rgba(34, 197, 94, 0.3);
+            transform: translateX(4px);
+        }
+
+        .quick-chip i {
+            color: var(--accent-primary);
+            font-size: 1rem;
+            width: 18px;
+            text-align: center;
+        }
+
+        /* Education Timeline Styles */
+        .education-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .education-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .education-title i {
+            color: var(--accent-primary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            bottom: 20px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-primary), rgba(34, 197, 94, 0.2));
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 3px solid var(--accent-primary);
+            box-shadow: 0 0 10px var(--glow);
+            z-index: 2;
+        }
+
+        .timeline-dot.current {
+            background: var(--accent-primary);
+            box-shadow: 0 0 16px var(--accent-primary);
+            animation: pulseDot 2s infinite;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 0.5rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 0.3rem 0.85rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
             border: 1px solid var(--card-border);
-            text-align: center;
-            transition: var(--transition);
+            margin-bottom: 0.75rem;
         }
 
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-secondary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        .timeline-badge.current {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.4);
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
         }
 
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #60a5fa, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .timeline-degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.35rem;
         }
 
-        .skill-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+        .timeline-school {
+            font-size: 0.98rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
-        .skill-card p {
-            font-size: 0.95rem;
+        .timeline-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
             margin-bottom: 0;
         }
 
-        /* Projects Section */
-        #projects {
-            background-color: var(--bg-secondary);
+        /* Frontend Skills Section */
+        #skills {
+            background-color: var(--bg-color);
+            position: relative;
         }
 
-        .projects-grid {
+        .section-subtitle {
+            text-align: center;
+            max-width: 680px;
+            margin: -1.5rem auto 3.5rem;
+            color: var(--text-secondary);
+            font-size: 1.08rem;
+            line-height: 1.7;
+        }
+
+        .frontend-tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
 
-        .project-card {
+        .tech-detail-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
             border: 1px solid var(--card-border);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border-color: rgba(96, 165, 250, 0.3);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 200px;
-            background-color: #1e293b;
+            border-radius: 24px;
+            padding: 2.4rem;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
-        
-        .project-img i {
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.1);
-        }
 
-        .project-img::after {
+        .tech-detail-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(11, 17, 32, 0.8));
-        }
-
-        .project-info {
-            padding: 2rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-primary);
-            border-radius: 99px;
-            font-weight: 600;
-        }
-
-        .project-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .project-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
             transition: var(--transition);
         }
 
-        .project-links a:hover {
-            color: var(--accent-primary);
+        /* HTML5 Accent */
+        .html-card::before {
+            background: linear-gradient(90deg, #e34f26, #f06529);
+        }
+        .html-card:hover {
+            border-color: rgba(227, 79, 38, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px -10px rgba(227, 79, 38, 0.25);
+        }
+
+        /* CSS3 Accent */
+        .css-card::before {
+            background: linear-gradient(90deg, #1572b6, #2965f1);
+        }
+        .css-card:hover {
+            border-color: rgba(41, 101, 241, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px -10px rgba(41, 101, 241, 0.25);
+        }
+
+        /* JS Accent */
+        .js-card::before {
+            background: linear-gradient(90deg, #f7df1e, #e5a823);
+        }
+        .js-card:hover {
+            border-color: rgba(247, 223, 30, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px -10px rgba(247, 223, 30, 0.25);
+        }
+
+        .tech-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .html-icon-box {
+            background: rgba(227, 79, 38, 0.12);
+            color: #f06529;
+            border: 1.5px solid rgba(227, 79, 38, 0.35);
+        }
+
+        .css-icon-box {
+            background: rgba(41, 101, 241, 0.12);
+            color: #2965f1;
+            border: 1.5px solid rgba(41, 101, 241, 0.35);
+        }
+
+        .js-icon-box {
+            background: rgba(247, 223, 30, 0.12);
+            color: #f7df1e;
+            border: 1.5px solid rgba(247, 223, 30, 0.35);
+        }
+
+        .tech-detail-card:hover .tech-icon-box {
+            transform: scale(1.1) rotate(6deg);
+        }
+
+        .tech-header-text h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .tech-card-desc {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 1.8rem;
+        }
+
+        .tech-features {
+            margin-bottom: 2rem;
+        }
+
+        .tech-features h4 {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.82rem;
+        }
+
+        .tech-features ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .tech-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .tech-features li i {
+            margin-top: 3px;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .html-card .tech-features li i { color: #f06529; }
+        .css-card .tech-features li i { color: #2965f1; }
+        .js-card .tech-features li i { color: #f7df1e; }
+
+        .tech-features li strong {
+            color: var(--text-primary);
+        }
+
+        .tech-features code {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            color: #4ade80;
+            font-family: monospace;
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .tech-pills span {
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .tech-pills span:hover {
+            color: #ffffff;
+            border-color: var(--accent-primary);
+            background: rgba(34, 197, 94, 0.1);
         }
 
         /* Contact Section */
@@ -1040,105 +1295,11 @@
             transition: opacity 0.15s ease;
         }
 
-        /* Modal Styles */
-        .modal {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(11, 17, 32, 0.9);
-            backdrop-filter: blur(15px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.4s ease;
-        }
-
-        .modal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            transform: translateY(50px) scale(0.95);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0) scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: var(--transition);
-        }
-
-        .modal-close:hover {
-            background: var(--accent-primary);
-            transform: rotate(90deg);
-        }
-
-        .modal-img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .modal-body {
-            padding: 3rem;
-        }
-
-        .modal-body h2 {
-            text-align: left;
-            margin-bottom: 1rem;
-            font-size: 2.2rem;
-        }
-
-        .modal-body .project-tags {
-            margin-bottom: 2rem;
-        }
-
-        .modal-details {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .modal-details h4 {
-            color: var(--text-primary);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .modal-details ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal-details li {
-            margin-bottom: 0.5rem;
+        /* Media Query Adjustments for About & Skills */
+        @media (max-width: 900px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1173,9 +1334,8 @@
             <!-- All Menu Items in a Horizontal Line -->
             <ul class="nav-links">
                 <li><a href="#hero" class="active"><i class="fas fa-home"></i> <span>Home</span></a></li>
-                <li><a href="#about"><i class="fas fa-user"></i> <span>About</span></a></li>
-                <li><a href="#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
-                <li><a href="#projects"><i class="fas fa-laptop-code"></i> <span>Projects</span></a></li>
+                <li><a href="#about"><i class="fas fa-user-graduate"></i> <span>About Me</span></a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> <span>Frontend Skills</span></a></li>
                 <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
             </ul>
 
@@ -1207,22 +1367,22 @@
 
                     <div class="hero-role-line">
                         <span class="role-lead">Specialized in </span>
-                        <span class="typing-role" id="typingRole">Full Stack Web Developer</span>
+                        <span class="typing-role" id="typingRole">Frontend Web Developer</span>
                         <span class="typing-cursor">|</span>
                     </div>
 
                     <p class="hero-bio">
-                        Crafting digital experiences with modern web technologies. I transform complex problems into elegant, beautiful, high-performance, and intuitive web interfaces.
+                        Computer Engineering student dedicated to building clean, responsive, and visually appealing web interfaces with modern <strong>HTML, CSS, and JavaScript</strong>.
                     </p>
 
                     <div class="hero-cta-group">
-                        <a href="#projects" class="btn btn-primary">
-                            <span>View My Work</span>
+                        <a href="#skills" class="btn btn-primary">
+                            <span>Explore Frontend Skills</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-envelope"></i>
-                            <span>Contact Me</span>
+                        <a href="#about" class="btn btn-outline">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>About My Journey</span>
                         </a>
                     </div>
 
@@ -1244,22 +1404,22 @@
                             <img src="profile.jpg" alt="Shailesh Gimbhal" class="profile-img">
                         </div>
 
-                        <!-- Interactive Floating Badges -->
+                        <!-- Interactive Floating Badges Highlighted for Frontend -->
                         <div class="floating-badge badge-react">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
+                            <i class="fab fa-html5" style="color: #f06529; font-size: 1.25rem;"></i>
+                            <span>HTML5</span>
                         </div>
                         <div class="floating-badge badge-node">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
+                            <i class="fab fa-css3-alt" style="color: #2965f1; font-size: 1.25rem;"></i>
+                            <span>CSS3</span>
                         </div>
                         <div class="floating-badge badge-js">
-                            <i class="fab fa-js"></i>
+                            <i class="fab fa-js" style="color: #f7df1e; font-size: 1.25rem;"></i>
                             <span>JavaScript</span>
                         </div>
                         <div class="floating-badge badge-code">
-                            <i class="fas fa-terminal"></i>
-                            <span>Clean Code</span>
+                            <i class="fas fa-laptop-code" style="color: var(--accent-primary); font-size: 1.1rem;"></i>
+                            <span>Computer Engg</span>
                         </div>
                     </div>
                 </div>
@@ -1271,158 +1431,234 @@
     <section id="about">
         <div class="container">
             <h2 class="reveal">About Me</h2>
-            <div class="about-content reveal">
-                <div class="about-text">
-                    <p>Hello! I'm Shailesh, a passionate Web Developer and Designer based in the digital realm. I specialize in building highly responsive, interactive, and visually stunning web applications.</p>
-                    <p>My approach combines clean code architecture with a keen eye for design aesthetics. I believe that a great website should not only function flawlessly but also leave a lasting impression on the user.</p>
-                    <p>When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or optimizing web performance.</p>
+            <div class="about-container reveal">
+                <!-- Personal Introduction Card -->
+                <div class="about-intro-card">
+                    <div class="about-intro-header">
+                        <div class="intro-avatar-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h3 class="intro-name">Shailesh Gimbhal</h3>
+                            <p class="intro-tagline">Computer Engineering Student & Frontend Developer</p>
+                        </div>
+                    </div>
+                    <p class="about-bio-text">
+                        Hello! My name is <strong>Shailesh Gimbhal</strong>. I am currently studying as a <strong>Computer Engineering</strong> student in <strong>Dr. B.B.A. Government Polytechnic College, Karad</strong>.
+                    </p>
+                    <p class="about-bio-text">
+                        I completed my <strong>10th standard in the year of 2020</strong> and <strong>12th standard in the year of 2022</strong> in the same school in <strong>Ahwa Dang, Gujarat</strong>. I have a strong passion for web development and love learning modern technologies to build intuitive, fast, and visually appealing web experiences.
+                    </p>
+                    <div class="about-quick-chips">
+                        <div class="quick-chip">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ahwa Dang, Gujarat</span>
+                        </div>
+                        <div class="quick-chip">
+                            <i class="fas fa-university"></i>
+                            <span>Dr. B.B.A. Govt. Polytechnic, Karad</span>
+                        </div>
+                        <div class="quick-chip">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Computer Engineering &bull; Frontend Web</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-num">3+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-num">50+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-num">20+</div>
-                        <div class="stat-label">Happy Clients</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-num">100%</div>
-                        <div class="stat-label">Dedication</div>
+
+                <!-- Education Timeline -->
+                <div class="education-section">
+                    <h3 class="education-title"><i class="fas fa-graduation-cap"></i> Educational Journey</h3>
+                    <div class="timeline">
+                        <!-- Education Item 1: Current College -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot current"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-badge current">Currently Studying</div>
+                                <h4 class="timeline-degree">Computer Engineering</h4>
+                                <p class="timeline-school">Dr. B.B.A. Government Polytechnic College, Karad</p>
+                                <p class="timeline-desc">
+                                    Pursuing diploma engineering with focus on computer fundamentals, programming languages, algorithms, and frontend web development technologies.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 2: 12th Grade -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-badge">Completed in 2022</div>
+                                <h4 class="timeline-degree">Higher Secondary Certificate (12th)</h4>
+                                <p class="timeline-school">Ahwa Dang, Gujarat</p>
+                                <p class="timeline-desc">
+                                    Successfully completed 12th standard in the year 2022 from Ahwa Dang, building a solid academic foundation in science and mathematics.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 3: 10th Grade -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-badge">Completed in 2020</div>
+                                <h4 class="timeline-degree">Secondary School Certificate (10th)</h4>
+                                <p class="timeline-school">Ahwa Dang, Gujarat</p>
+                                <p class="timeline-desc">
+                                    Completed 10th standard in the year 2020 in the same school in Ahwa Dang, Gujarat with dedicated academic achievement.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Frontend Skills Section (HTML, CSS, JS) -->
     <section id="skills">
         <div class="container">
-            <h2 class="reveal">My Expertise</h2>
-            <div class="skills-grid reveal">
-                <div class="skill-card">
-                    <i class="fab fa-react skill-icon"></i>
-                    <h3>Frontend Development</h3>
-                    <p>Building responsive and interactive UIs using React, Vue, HTML5, CSS3, and modern JavaScript.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-server skill-icon"></i>
-                    <h3>Backend Integration</h3>
-                    <p>Creating robust server-side logic and APIs using Node.js, Express, and RESTful principles.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-paint-brush skill-icon"></i>
-                    <h3>UI/UX Design</h3>
-                    <p>Designing intuitive user experiences and aesthetically pleasing interfaces with Figma and Adobe XD.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-mobile-alt skill-icon"></i>
-                    <h3>Responsive Design</h3>
-                    <p>Ensuring seamless experiences across all devices, from desktop monitors to mobile screens.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h2 class="reveal">Frontend Technologies</h2>
+            <p class="section-subtitle reveal">
+                Deep dive into core frontend web development pillars: <strong>HTML5</strong> for structure, <strong>CSS3</strong> for modern responsive styling, and <strong>JavaScript</strong> for dynamic interactivity.
+            </p>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="reveal">Featured Projects</h2>
-            <div class="projects-grid reveal">
-                <!-- Project 1 -->
-                <div class="project-card" onclick="openModal(this)">
-                    <div class="project-img">
-                        <img src="ecommerce.jpg" alt="E-Commerce Platform" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Stripe</span>
+            <div class="frontend-tech-grid reveal">
+                <!-- HTML5 Details Card -->
+                <div class="tech-detail-card html-card">
+                    <div>
+                        <div class="tech-card-header">
+                            <div class="tech-icon-box html-icon-box">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="tech-header-text">
+                                <h3>HTML5</h3>
+                                <span class="tech-badge">Semantic Web Structure</span>
+                            </div>
                         </div>
-                        <h3>E-Commerce Platform</h3>
-                        <p>A stunning, high-conversion e-commerce experience designed to captivate visitors. Features lightning-fast performance, seamless navigation, and a secure checkout flow that turns casual browsers into loyal customers.</p>
-                        <div class="project-links" onclick="event.stopPropagation()">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                    <div class="extra-details" style="display: none;">
-                        <h4>Key Features</h4>
-                        <ul>
-                            <li>Real-time inventory synchronization across multiple warehouses.</li>
-                            <li>Secure payment gateway integration with Stripe (supports Apple Pay & Google Pay).</li>
-                            <li>Personalized product recommendations based on user browsing history.</li>
-                            <li>Admin dashboard for managing orders, users, and site analytics.</li>
-                        </ul>
-                        <h4>My Role</h4>
-                        <p>I acted as the lead full-stack developer, designing the database schema, building the RESTful API in Node.js, and creating the frontend React components.</p>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card" onclick="openModal(this)">
-                    <div class="project-img">
-                        <img src="analytics.jpg" alt="Analytics Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">Tailwind</span>
-                        </div>
-                        <h3>Analytics Dashboard</h3>
-                        <p>A powerful, intuitive data visualization platform. It transforms complex datasets into actionable insights through stunning interactive charts, real-time metrics, and fully customizable widgets.</p>
-                        <div class="project-links" onclick="event.stopPropagation()">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                        <p class="tech-card-desc">
+                            The foundation of every website. Crafting clean, well-formed semantic markup that ensures accessibility, search engine optimization, and fast rendering.
+                        </p>
+                        <div class="tech-features">
+                            <h4>Core Capabilities:</h4>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Semantic Tags:</strong> Clean structure using <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code></span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Forms & Validation:</strong> Modern input types, validation attributes, accessible form controls</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Multimedia & Graphics:</strong> Responsive <code>&lt;img&gt;</code>, audio/video embeds, scalable vector graphics (SVG)</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>SEO Standards:</strong> Proper heading hierarchy, meta descriptions, open graph tags, and accessibility standards</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="extra-details" style="display: none;">
-                        <h4>Key Features</h4>
-                        <ul>
-                            <li>Interactive charting utilizing D3.js and Chart.js for deep data exploration.</li>
-                            <li>Live WebSocket connections for real-time data streaming and alerts.</li>
-                            <li>Customizable widget layouts with drag-and-drop functionality.</li>
-                            <li>Export functionality for generating automated PDF and CSV reports.</li>
-                        </ul>
-                        <h4>My Role</h4>
-                        <p>Responsible for the entire frontend architecture using Vue.js, implementing complex state management, and ensuring the dashboard maintained 60fps even with large datasets.</p>
+                    <div class="tech-pills">
+                        <span>HTML5</span>
+                        <span>Semantic Markup</span>
+                        <span>Web Accessibility</span>
+                        <span>SEO Standards</span>
+                        <span>Modern DOM</span>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-card" onclick="openModal(this)">
-                    <div class="project-img">
-                        <img src="agency.jpg" alt="Creative Agency Site" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">JS</span>
-                            <span class="tag">GSAP</span>
+                <!-- CSS3 Details Card -->
+                <div class="tech-detail-card css-card">
+                    <div>
+                        <div class="tech-card-header">
+                            <div class="tech-icon-box css-icon-box">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <div class="tech-header-text">
+                                <h3>CSS3</h3>
+                                <span class="tech-badge">Styling & Responsive Layout</span>
+                            </div>
                         </div>
-                        <h3>Creative Agency Site</h3>
-                        <p>An award-winning, immersive digital experience built for a creative agency. It combines breathtaking GSAP scroll animations, elegant typography, and avant-garde design to leave a lasting impact.</p>
-                        <div class="project-links" onclick="event.stopPropagation()">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                        <p class="tech-card-desc">
+                            Designing eye-catching, responsive, and visually delightful interfaces with fluid layouts, dark themes, glassmorphism, and smooth micro-interactions.
+                        </p>
+                        <div class="tech-features">
+                            <h4>Core Capabilities:</h4>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Flexbox & CSS Grid:</strong> Advanced 1D and 2D layout systems for clean, flexible component alignment</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Responsive Design:</strong> Mobile-first media queries ensuring perfect display on phones, tablets, and laptops</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Keyframe Animations:</strong> Smooth UI transitions, glowing pulses, hover transformations, and scroll reveals</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Modern UI Aesthetics:</strong> Glassmorphism (<code>backdrop-filter</code>), custom gradients, and CSS custom variables</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="extra-details" style="display: none;">
-                        <h4>Key Features</h4>
-                        <ul>
-                            <li>Complex scroll-triggered animations utilizing GSAP ScrollTrigger.</li>
-                            <li>Custom WebGL cursor effects and page transitions.</li>
-                            <li>Perfectly responsive design that adapts fluidly across all breakpoints.</li>
-                            <li>Optimized asset delivery resulting in a 98/100 Lighthouse performance score.</li>
-                        </ul>
-                        <h4>My Role</h4>
-                        <p>Served as the lead creative technologist, translating static Figma designs into highly interactive, performant code, while pushing the boundaries of what's possible in the browser.</p>
+                    <div class="tech-pills">
+                        <span>CSS3</span>
+                        <span>Flexbox</span>
+                        <span>CSS Grid</span>
+                        <span>Responsive Queries</span>
+                        <span>Keyframes</span>
+                        <span>Glassmorphism</span>
+                    </div>
+                </div>
+
+                <!-- JavaScript Details Card -->
+                <div class="tech-detail-card js-card">
+                    <div>
+                        <div class="tech-card-header">
+                            <div class="tech-icon-box js-icon-box">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="tech-header-text">
+                                <h3>JavaScript</h3>
+                                <span class="tech-badge">Logic & Interactivity</span>
+                            </div>
+                        </div>
+                        <p class="tech-card-desc">
+                            Bringing web pages to life with client-side programming, event-driven interactions, dynamic DOM manipulation, and modern ES6+ coding standards.
+                        </p>
+                        <div class="tech-features">
+                            <h4>Core Capabilities:</h4>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>DOM Manipulation:</strong> Dynamically reading and modifying HTML elements, attributes, and CSS styles</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Event Handling:</strong> Responding to user clicks, keyboard inputs, mouse movements, and window scroll events</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Interactive Features:</strong> Live typewriter animation, custom cursor tracking, click ripples, and scroll spy</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span><strong>Modern ES6+ Syntax:</strong> Arrow functions, destructuring, template literals, array methods, and modular code</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tech-pills">
+                        <span>JavaScript</span>
+                        <span>DOM Scripting</span>
+                        <span>ES6+</span>
+                        <span>Event Listeners</span>
+                        <span>Async JS</span>
+                        <span>Micro-Interactions</span>
                     </div>
                 </div>
             </div>
@@ -1457,24 +1693,7 @@
         <p>&copy; 2026 Shailesh Gimbhal. Designed & Built with passion.</p>
     </footer>
 
-    <!-- Project Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-            <img src="" alt="Project Image" class="modal-img" id="modalImg">
-            <div class="modal-body">
-                <div class="project-tags" id="modalTags"></div>
-                <h2 id="modalTitle">Project Title</h2>
-                <p id="modalShortDesc" style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1.5rem;"></p>
-                <div class="modal-details" id="modalExtraDetails">
-                    <!-- Dynamic extra details go here -->
-                </div>
-                <div class="project-links" id="modalLinks">
-                    <!-- Links go here -->
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- JavaScript for Interactions -->
     <script>
@@ -1513,10 +1732,10 @@
         // Dynamic Role Typewriter for Hero Section
         const typingRole = document.getElementById('typingRole');
         const rolesList = [
-            "Full Stack Web Developer",
-            "UI/UX Designer",
-            "Frontend Architect",
-            "Creative Problem Solver"
+            "Frontend Web Developer",
+            "HTML, CSS & JavaScript",
+            "Computer Engineering Student",
+            "Creative UI Designer"
         ];
         let roleIdx = 0;
         let charIdx = 0;
@@ -1565,40 +1784,6 @@
         // Trigger once on load
         reveal();
 
-        // Modal Logic
-        const modal = document.getElementById('projectModal');
-        
-        function openModal(card) {
-            const imgSrc = card.querySelector('.project-img img').src;
-            const title = card.querySelector('h3').innerText;
-            const tags = card.querySelector('.project-tags').innerHTML;
-            const shortDesc = card.querySelector('p').innerText;
-            const links = card.querySelector('.project-links').innerHTML;
-            const extraDetails = card.querySelector('.extra-details').innerHTML;
-
-            document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalTags').innerHTML = tags;
-            document.getElementById('modalShortDesc').innerText = shortDesc;
-            document.getElementById('modalExtraDetails').innerHTML = extraDetails;
-            document.getElementById('modalLinks').innerHTML = links;
-
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
         // Green Click Effect
         document.addEventListener('click', function(e) {
             const ripple = document.createElement('div');
@@ -1621,7 +1806,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             const cursorDot = document.querySelector('.cursor-dot');
             const cursorOutline = document.querySelector('.cursor-outline');
-            const clickables = document.querySelectorAll('a, button, .project-card, .menu-toggle, .social-icon, .modal-close, .brand-logo, .btn-nav-cta, .hero-social-link, .floating-badge');
+            const clickables = document.querySelectorAll('a, button, .social-icon, .brand-logo, .btn-nav-cta, .hero-social-link, .floating-badge, .quick-chip, .tech-detail-card');
 
             window.addEventListener('mousemove', function(e) {
                 const posX = e.clientX;
