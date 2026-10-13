@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,27 @@
     <meta name="description" content="Professional Portfolio of Shailesh Gimbhal">
     <title>Shailesh Gimbhal | Portfolio</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #000000; /* Pure black */
-            --bg-secondary: #0a0a0a; /* Slightly lighter black */
+            --bg-color: #000000;
+            /* Pure black */
+            --bg-secondary: #0a0a0a;
+            /* Slightly lighter black */
             --text-primary: #f8fafc;
             --text-secondary: #a1a1aa;
-            --accent-primary: #22c55e; /* Green */
-            --accent-secondary: #10b981; /* Darker/different Green */
+            --accent-primary: #22c55e;
+            /* Green */
+            --accent-secondary: #10b981;
+            /* Darker/different Green */
             --card-bg: rgba(20, 20, 20, 0.8);
             --card-border: rgba(255, 255, 255, 0.1);
             --glow: rgba(34, 197, 94, 0.3);
+
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -40,7 +48,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 15% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
         }
@@ -62,13 +70,17 @@
                 opacity: 1;
                 box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0.8);
             }
+
             100% {
                 transform: translate(-50%, -50%) scale(4);
                 opacity: 0;
             }
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Outfit', sans-serif;
         }
 
@@ -359,9 +371,11 @@
             0% {
                 box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
             }
+
             70% {
                 box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
             }
+
             100% {
                 box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
             }
@@ -426,8 +440,15 @@
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         .hero-bio {
@@ -568,36 +589,61 @@
             right: -20px;
             animation: floatAnim 4s ease-in-out infinite;
         }
-        .badge-react i { color: #61dafb; font-size: 1.15rem; }
+
+        .badge-react i {
+            color: #61dafb;
+            font-size: 1.15rem;
+        }
 
         .badge-node {
             bottom: 25px;
             right: -30px;
             animation: floatAnim 5s ease-in-out infinite 1s;
         }
-        .badge-node i { color: #68a063; font-size: 1.15rem; }
+
+        .badge-node i {
+            color: #68a063;
+            font-size: 1.15rem;
+        }
 
         .badge-js {
             top: 45px;
             left: -35px;
             animation: floatAnim 4.5s ease-in-out infinite 0.5s;
         }
-        .badge-js i { color: #f7df1e; font-size: 1.15rem; }
+
+        .badge-js i {
+            color: #f7df1e;
+            font-size: 1.15rem;
+        }
 
         .badge-code {
             bottom: -15px;
             left: 10px;
             animation: floatAnim 5.5s ease-in-out infinite 1.5s;
         }
-        .badge-code i { color: var(--accent-primary); font-size: 1.05rem; }
+
+        .badge-code i {
+            color: var(--accent-primary);
+            font-size: 1.05rem;
+        }
 
         @keyframes floatAnim {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         @keyframes spin {
-            100% { transform: rotate(360deg); }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .btn-group {
@@ -923,6 +969,7 @@
         .html-card::before {
             background: linear-gradient(90deg, #e34f26, #f06529);
         }
+
         .html-card:hover {
             border-color: rgba(227, 79, 38, 0.5);
             transform: translateY(-8px);
@@ -933,6 +980,7 @@
         .css-card::before {
             background: linear-gradient(90deg, #1572b6, #2965f1);
         }
+
         .css-card:hover {
             border-color: rgba(41, 101, 241, 0.5);
             transform: translateY(-8px);
@@ -943,6 +991,7 @@
         .js-card::before {
             background: linear-gradient(90deg, #f7df1e, #e5a823);
         }
+
         .js-card:hover {
             border-color: rgba(247, 223, 30, 0.5);
             transform: translateY(-8px);
@@ -1047,9 +1096,17 @@
             flex-shrink: 0;
         }
 
-        .html-card .tech-features li i { color: #f06529; }
-        .css-card .tech-features li i { color: #2965f1; }
-        .js-card .tech-features li i { color: #f7df1e; }
+        .html-card .tech-features li i {
+            color: #f06529;
+        }
+
+        .css-card .tech-features li i {
+            color: #2965f1;
+        }
+
+        .js-card .tech-features li i {
+            color: #f7df1e;
+        }
 
         .tech-features li strong {
             color: var(--text-primary);
@@ -1308,18 +1365,23 @@
         .app-profile-card.card-instagram:hover::after {
             background: linear-gradient(90deg, #f09433, #dc2743, #bc1888);
         }
+
         .app-profile-card.card-github:hover::after {
             background: #ffffff;
         }
+
         .app-profile-card.card-twitter:hover::after {
             background: #1da1f2;
         }
+
         .app-profile-card.card-indeed:hover::after {
             background: #2164f4;
         }
+
         .app-profile-card.card-linkedin:hover::after {
             background: #0a66c2;
         }
+
         .app-profile-card.card-gmail:hover::after {
             background: #ea4335;
         }
@@ -1349,26 +1411,31 @@
             background: rgba(225, 48, 108, 0.1);
             border-color: rgba(225, 48, 108, 0.25);
         }
+
         .card-github .app-icon {
             color: #ffffff;
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
         }
+
         .card-twitter .app-icon {
             color: #1da1f2;
             background: rgba(29, 161, 242, 0.1);
             border-color: rgba(29, 161, 242, 0.25);
         }
+
         .card-indeed .app-icon {
             color: #2164f4;
             background: rgba(33, 100, 244, 0.1);
             border-color: rgba(33, 100, 244, 0.25);
         }
+
         .card-linkedin .app-icon {
             color: #0a66c2;
             background: rgba(10, 102, 194, 0.1);
             border-color: rgba(10, 102, 194, 0.25);
         }
+
         .card-gmail .app-icon {
             color: #ea4335;
             background: rgba(234, 67, 53, 0.1);
@@ -1457,6 +1524,7 @@
             .about-content {
                 grid-template-columns: 1fr;
             }
+
             .stats {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1467,22 +1535,28 @@
                 grid-template-columns: 1fr;
                 gap: 3.5rem;
             }
+
             .hero-content {
                 align-items: center;
                 text-align: center;
             }
+
             .hero-title {
                 text-align: center;
             }
+
             .hero-role-line {
                 justify-content: center;
             }
+
             .hero-bio {
                 text-align: center;
             }
+
             .hero-cta-group {
                 justify-content: center;
             }
+
             .hero-socials {
                 justify-content: center;
             }
@@ -1581,33 +1655,42 @@
             h1 {
                 font-size: 2.5rem;
             }
+
             .stats {
                 grid-template-columns: 1fr;
             }
+
             .btn-group {
                 flex-direction: column;
                 width: 100%;
             }
+
             .btn {
                 width: 100%;
                 justify-content: center;
             }
         }
-        
+
         /* Reveal Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
-        
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
         /* Custom Cursor Styles */
-        body, a, button, .project-card, .menu-toggle, .social-icon, .modal-close {
+        body,
+        a,
+        button,
+        .project-card,
+        .menu-toggle,
+        .social-icon,
+        .modal-close {
             cursor: none !important;
         }
 
@@ -1616,7 +1699,8 @@
             height: 8px;
             background-color: var(--accent-primary);
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             transform: translate(-50%, -50%);
             border-radius: 50%;
             z-index: 10000;
@@ -1628,7 +1712,8 @@
             height: 40px;
             border: 2px solid var(--accent-primary);
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             transform: translate(-50%, -50%);
             border-radius: 50%;
             z-index: 9999;
@@ -1644,6 +1729,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation -->
@@ -1653,15 +1739,17 @@
             <a href="#hero" class="brand-logo" aria-label="Shailesh Gimbhal Portfolio">
                 <div class="logo-icon-box">
                     <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="40" height="40" rx="10" fill="url(#logo-grad)" fill-opacity="0.15"/>
-                        <rect x="1" y="1" width="38" height="38" rx="9" stroke="url(#logo-grad)" stroke-width="1.5"/>
-                        <path d="M14 15L9 20L14 25" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M26 15L31 20L26 25" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22 13L18 27" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+                        <rect width="40" height="40" rx="10" fill="url(#logo-grad)" fill-opacity="0.15" />
+                        <rect x="1" y="1" width="38" height="38" rx="9" stroke="url(#logo-grad)" stroke-width="1.5" />
+                        <path d="M14 15L9 20L14 25" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M26 15L31 20L26 25" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M22 13L18 27" stroke="#4ade80" stroke-width="2" stroke-linecap="round" />
                         <defs>
                             <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#22c55e"/>
-                                <stop offset="1" stop-color="#10b981"/>
+                                <stop stop-color="#22c55e" />
+                                <stop offset="1" stop-color="#10b981" />
                             </linearGradient>
                         </defs>
                     </svg>
@@ -1713,7 +1801,8 @@
                     </div>
 
                     <p class="hero-bio">
-                        Computer Engineering student dedicated to building clean, responsive, and visually appealing web interfaces with modern <strong>HTML, CSS, and JavaScript</strong>.
+                        Computer Engineering student dedicated to building clean, responsive, and visually appealing web
+                        interfaces with modern <strong>HTML, CSS, and JavaScript</strong>.
                     </p>
 
                     <div class="hero-cta-group">
@@ -1729,12 +1818,24 @@
 
                     <div class="hero-socials">
                         <span class="socials-label">Connect:</span>
-                        <a href="https://github.com/gimbhalshailesh587-hue" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="GitHub (@gimbhalshailesh587-hue)" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="Instagram (@gimbhalshailesh587)" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/gimbhalshailesh" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="Twitter (@gimbhalshailesh)" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://profile.indeed.com/" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="Indeed Profile" aria-label="Indeed"><i class="fab fa-indeed"></i></a>
-                        <a href="https://www.linkedin.com/in/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="LinkedIn Profile" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:gimbhalshailesh587@gmail.com" class="hero-social-link" title="Direct Email: gimbhalshailesh587@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/gimbhalshailesh587-hue" target="_blank" rel="noopener noreferrer"
+                            class="hero-social-link" title="GitHub (@gimbhalshailesh587-hue)" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/gimbhalshailesh587" target="_blank" rel="noopener noreferrer"
+                            class="hero-social-link" title="Instagram (@gimbhalshailesh587)" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/gimbhalshailesh" target="_blank" rel="noopener noreferrer"
+                            class="hero-social-link" title="Twitter (@gimbhalshailesh)" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://profile.indeed.com/" target="_blank" rel="noopener noreferrer"
+                            class="hero-social-link" title="Indeed Profile" aria-label="Indeed"><i
+                                class="fab fa-indeed"></i></a>
+                        <a href="https://www.linkedin.com/in/gimbhalshailesh587" target="_blank"
+                            rel="noopener noreferrer" class="hero-social-link" title="LinkedIn Profile"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:gimbhalshailesh587@gmail.com" class="hero-social-link"
+                            title="Direct Email: gimbhalshailesh587@gmail.com" aria-label="Email"><i
+                                class="fas fa-envelope"></i></a>
                     </div>
                 </div>
 
@@ -1787,10 +1888,15 @@
                         </div>
                     </div>
                     <p class="about-bio-text">
-                        Hello! My name is <strong>Shailesh Gimbhal</strong>. I am currently studying as a <strong>Computer Engineering</strong> student in <strong>Dr. B.B.A. Government Polytechnic College, Karad</strong>.
+                        Hello! My name is <strong>Shailesh Gimbhal</strong>. I am currently studying as a
+                        <strong>Computer Engineering</strong> student in <strong>Dr. B.B.A. Government Polytechnic
+                            College, Karad</strong>.
                     </p>
                     <p class="about-bio-text">
-                        I completed my <strong>10th standard in the year of 2020</strong> and <strong>12th standard in the year of 2022</strong> in the same school in <strong>Ahwa Dang, Gujarat</strong>. I have a strong passion for web development and love learning modern technologies to build intuitive, fast, and visually appealing web experiences.
+                        I completed my <strong>10th standard in the year of 2020</strong> and <strong>12th standard in
+                            the year of 2022</strong> in the same school in <strong>Ahwa Dang, Gujarat</strong>. I have
+                        a strong passion for web development and love learning modern technologies to build intuitive,
+                        fast, and visually appealing web experiences.
                     </p>
                     <div class="about-quick-chips">
                         <div class="quick-chip">
@@ -1820,7 +1926,8 @@
                                 <h4 class="timeline-degree">Computer Engineering</h4>
                                 <p class="timeline-school">Dr. B.B.A. Government Polytechnic College, Karad</p>
                                 <p class="timeline-desc">
-                                    Pursuing diploma engineering with focus on computer fundamentals, programming languages, algorithms, and frontend web development technologies.
+                                    Pursuing diploma engineering with focus on computer fundamentals, programming
+                                    languages, algorithms, and frontend web development technologies.
                                 </p>
                             </div>
                         </div>
@@ -1833,7 +1940,8 @@
                                 <h4 class="timeline-degree">Higher Secondary Certificate (12th)</h4>
                                 <p class="timeline-school">Ahwa Dang, Gujarat</p>
                                 <p class="timeline-desc">
-                                    Successfully completed 12th standard in the year 2022 from Ahwa Dang, building a solid academic foundation in science and mathematics.
+                                    Successfully completed 12th standard in the year 2022 from Ahwa Dang, building a
+                                    solid academic foundation in science and mathematics.
                                 </p>
                             </div>
                         </div>
@@ -1846,7 +1954,8 @@
                                 <h4 class="timeline-degree">Secondary School Certificate (10th)</h4>
                                 <p class="timeline-school">Ahwa Dang, Gujarat</p>
                                 <p class="timeline-desc">
-                                    Completed 10th standard in the year 2020 in the same school in Ahwa Dang, Gujarat with dedicated academic achievement.
+                                    Completed 10th standard in the year 2020 in the same school in Ahwa Dang, Gujarat
+                                    with dedicated academic achievement.
                                 </p>
                             </div>
                         </div>
@@ -1861,7 +1970,9 @@
         <div class="container">
             <h2 class="reveal">Frontend Technologies</h2>
             <p class="section-subtitle reveal">
-                Deep dive into core frontend web development pillars: <strong>HTML5</strong> for structure, <strong>CSS3</strong> for modern responsive styling, and <strong>JavaScript</strong> for dynamic interactivity.
+                Deep dive into core frontend web development pillars: <strong>HTML5</strong> for structure,
+                <strong>CSS3</strong> for modern responsive styling, and <strong>JavaScript</strong> for dynamic
+                interactivity.
             </p>
 
             <div class="frontend-tech-grid reveal">
@@ -1878,26 +1989,33 @@
                             </div>
                         </div>
                         <p class="tech-card-desc">
-                            The foundation of every website. Crafting clean, well-formed semantic markup that ensures accessibility, search engine optimization, and fast rendering.
+                            The foundation of every website. Crafting clean, well-formed semantic markup that ensures
+                            accessibility, search engine optimization, and fast rendering.
                         </p>
                         <div class="tech-features">
                             <h4>Core Capabilities:</h4>
                             <ul>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Semantic Tags:</strong> Clean structure using <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code></span>
+                                    <span><strong>Semantic Tags:</strong> Clean structure using
+                                        <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+                                        <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>,
+                                        <code>&lt;footer&gt;</code></span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Forms & Validation:</strong> Modern input types, validation attributes, accessible form controls</span>
+                                    <span><strong>Forms & Validation:</strong> Modern input types, validation
+                                        attributes, accessible form controls</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Multimedia & Graphics:</strong> Responsive <code>&lt;img&gt;</code>, audio/video embeds, scalable vector graphics (SVG)</span>
+                                    <span><strong>Multimedia & Graphics:</strong> Responsive <code>&lt;img&gt;</code>,
+                                        audio/video embeds, scalable vector graphics (SVG)</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>SEO Standards:</strong> Proper heading hierarchy, meta descriptions, open graph tags, and accessibility standards</span>
+                                    <span><strong>SEO Standards:</strong> Proper heading hierarchy, meta descriptions,
+                                        open graph tags, and accessibility standards</span>
                                 </li>
                             </ul>
                         </div>
@@ -1924,26 +2042,32 @@
                             </div>
                         </div>
                         <p class="tech-card-desc">
-                            Designing eye-catching, responsive, and visually delightful interfaces with fluid layouts, dark themes, glassmorphism, and smooth micro-interactions.
+                            Designing eye-catching, responsive, and visually delightful interfaces with fluid layouts,
+                            dark themes, glassmorphism, and smooth micro-interactions.
                         </p>
                         <div class="tech-features">
                             <h4>Core Capabilities:</h4>
                             <ul>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Flexbox & CSS Grid:</strong> Advanced 1D and 2D layout systems for clean, flexible component alignment</span>
+                                    <span><strong>Flexbox & CSS Grid:</strong> Advanced 1D and 2D layout systems for
+                                        clean, flexible component alignment</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Responsive Design:</strong> Mobile-first media queries ensuring perfect display on phones, tablets, and laptops</span>
+                                    <span><strong>Responsive Design:</strong> Mobile-first media queries ensuring
+                                        perfect display on phones, tablets, and laptops</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Keyframe Animations:</strong> Smooth UI transitions, glowing pulses, hover transformations, and scroll reveals</span>
+                                    <span><strong>Keyframe Animations:</strong> Smooth UI transitions, glowing pulses,
+                                        hover transformations, and scroll reveals</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Modern UI Aesthetics:</strong> Glassmorphism (<code>backdrop-filter</code>), custom gradients, and CSS custom variables</span>
+                                    <span><strong>Modern UI Aesthetics:</strong> Glassmorphism
+                                        (<code>backdrop-filter</code>), custom gradients, and CSS custom
+                                        variables</span>
                                 </li>
                             </ul>
                         </div>
@@ -1971,26 +2095,31 @@
                             </div>
                         </div>
                         <p class="tech-card-desc">
-                            Bringing web pages to life with client-side programming, event-driven interactions, dynamic DOM manipulation, and modern ES6+ coding standards.
+                            Bringing web pages to life with client-side programming, event-driven interactions, dynamic
+                            DOM manipulation, and modern ES6+ coding standards.
                         </p>
                         <div class="tech-features">
                             <h4>Core Capabilities:</h4>
                             <ul>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>DOM Manipulation:</strong> Dynamically reading and modifying HTML elements, attributes, and CSS styles</span>
+                                    <span><strong>DOM Manipulation:</strong> Dynamically reading and modifying HTML
+                                        elements, attributes, and CSS styles</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Event Handling:</strong> Responding to user clicks, keyboard inputs, mouse movements, and window scroll events</span>
+                                    <span><strong>Event Handling:</strong> Responding to user clicks, keyboard inputs,
+                                        mouse movements, and window scroll events</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Interactive Features:</strong> Live typewriter animation, custom cursor tracking, click ripples, and scroll spy</span>
+                                    <span><strong>Interactive Features:</strong> Live typewriter animation, custom
+                                        cursor tracking, click ripples, and scroll spy</span>
                                 </li>
                                 <li>
                                     <i class="fas fa-check-circle"></i>
-                                    <span><strong>Modern ES6+ Syntax:</strong> Arrow functions, destructuring, template literals, array methods, and modular code</span>
+                                    <span><strong>Modern ES6+ Syntax:</strong> Arrow functions, destructuring, template
+                                        literals, array methods, and modular code</span>
                                 </li>
                             </ul>
                         </div>
@@ -2015,7 +2144,9 @@
                 <div class="contact-box">
                     <h2>Let's Work Together</h2>
                     <p class="contact-description">
-                        I am open to computer engineering internships, frontend web development roles, and exciting collaborations. Connect directly via my official Gmail or tap on any app below to view my direct profile!
+                        I am open to computer engineering internships, frontend web development roles, and exciting
+                        collaborations. Connect directly via my official Gmail or tap on any app below to view my direct
+                        profile!
                     </p>
 
                     <!-- Direct Gmail Highlight Card -->
@@ -2026,11 +2157,13 @@
                             </div>
                             <div class="email-texts">
                                 <span>Official Direct Email</span>
-                                <a href="mailto:gimbhalshailesh587@gmail.com" id="emailAddressText">gimbhalshailesh587@gmail.com</a>
+                                <a href="mailto:gimbhalshailesh587@gmail.com"
+                                    id="emailAddressText">gimbhalshailesh587@gmail.com</a>
                             </div>
                         </div>
                         <div class="email-actions">
-                            <button type="button" class="btn-copy-email" id="btnCopyEmail" title="Copy email address" onclick="copyEmailToClipboard()">
+                            <button type="button" class="btn-copy-email" id="btnCopyEmail" title="Copy email address"
+                                onclick="copyEmailToClipboard()">
                                 <i class="far fa-copy" id="copyIcon"></i>
                                 <span id="copyText">Copy Email</span>
                             </button>
@@ -2049,7 +2182,9 @@
 
                     <div class="app-profiles-grid">
                         <!-- Instagram App -->
-                        <a href="https://www.instagram.com/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="app-profile-card card-instagram" aria-label="Instagram Profile (@gimbhalshailesh587)">
+                        <a href="https://www.instagram.com/gimbhalshailesh587" target="_blank" rel="noopener noreferrer"
+                            class="app-profile-card card-instagram"
+                            aria-label="Instagram Profile (@gimbhalshailesh587)">
                             <div class="app-card-left">
                                 <div class="app-icon">
                                     <i class="fab fa-instagram"></i>
@@ -2065,7 +2200,8 @@
                         </a>
 
                         <!-- GitHub App -->
-                        <a href="https://github.com/gimbhalshailesh587-hue" target="_blank" rel="noopener noreferrer" class="app-profile-card card-github" aria-label="GitHub Profile (@gimbhalshailesh587-hue)">
+                        <a href="https://github.com/gimbhalshailesh587-hue" target="_blank" rel="noopener noreferrer"
+                            class="app-profile-card card-github" aria-label="GitHub Profile (@gimbhalshailesh587-hue)">
                             <div class="app-card-left">
                                 <div class="app-icon">
                                     <i class="fab fa-github"></i>
@@ -2081,7 +2217,8 @@
                         </a>
 
                         <!-- Twitter / X App -->
-                        <a href="https://twitter.com/gimbhalshailesh" target="_blank" rel="noopener noreferrer" class="app-profile-card card-twitter" aria-label="Twitter Profile (@gimbhalshailesh)">
+                        <a href="https://twitter.com/gimbhalshailesh" target="_blank" rel="noopener noreferrer"
+                            class="app-profile-card card-twitter" aria-label="Twitter Profile (@gimbhalshailesh)">
                             <div class="app-card-left">
                                 <div class="app-icon">
                                     <i class="fab fa-twitter"></i>
@@ -2097,7 +2234,8 @@
                         </a>
 
                         <!-- Indeed App -->
-                        <a href="https://profile.indeed.com/" target="_blank" rel="noopener noreferrer" class="app-profile-card card-indeed" aria-label="Indeed Profile">
+                        <a href="https://profile.indeed.com/" target="_blank" rel="noopener noreferrer"
+                            class="app-profile-card card-indeed" aria-label="Indeed Profile">
                             <div class="app-card-left">
                                 <div class="app-icon">
                                     <i class="fab fa-indeed"></i>
@@ -2113,7 +2251,9 @@
                         </a>
 
                         <!-- LinkedIn App -->
-                        <a href="https://www.linkedin.com/in/gimbhalshailesh587" target="_blank" rel="noopener noreferrer" class="app-profile-card card-linkedin" aria-label="LinkedIn Profile">
+                        <a href="https://www.linkedin.com/in/gimbhalshailesh587" target="_blank"
+                            rel="noopener noreferrer" class="app-profile-card card-linkedin"
+                            aria-label="LinkedIn Profile">
                             <div class="app-card-left">
                                 <div class="app-icon">
                                     <i class="fab fa-linkedin-in"></i>
@@ -2129,7 +2269,8 @@
                         </a>
 
                         <!-- Gmail App -->
-                        <a href="mailto:gimbhalshailesh587@gmail.com" class="app-profile-card card-gmail" aria-label="Gmail Direct (gimbhalshailesh587@gmail.com)">
+                        <a href="mailto:gimbhalshailesh587@gmail.com" class="app-profile-card card-gmail"
+                            aria-label="Gmail Direct (gimbhalshailesh587@gmail.com)">
                             <div class="app-card-left">
                                 <div class="app-icon">
                                     <i class="fas fa-envelope"></i>
@@ -2153,7 +2294,8 @@
     <footer>
         <p>&copy; 2026 Shailesh Gimbhal. Designed &amp; Built with passion.</p>
         <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #a1a1aa;">
-            Email: <a href="mailto:gimbhalshailesh587@gmail.com" style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">gimbhalshailesh587@gmail.com</a>
+            Email: <a href="mailto:gimbhalshailesh587@gmail.com"
+                style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">gimbhalshailesh587@gmail.com</a>
         </p>
     </footer>
 
@@ -2193,7 +2335,7 @@
         window.addEventListener('scroll', updateActiveNav);
 
         navItems.forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 navItems.forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
             });
@@ -2255,18 +2397,18 @@
         reveal();
 
         // Green Click Effect
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             const ripple = document.createElement('div');
             ripple.className = 'click-ripple';
             ripple.style.left = e.clientX + 'px';
             ripple.style.top = e.clientY + 'px';
-            
+
             const size = 50;
             ripple.style.width = size + 'px';
             ripple.style.height = size + 'px';
-            
+
             document.body.appendChild(ripple);
-            
+
             setTimeout(() => {
                 ripple.remove();
             }, 600);
@@ -2326,7 +2468,7 @@
             const cursorOutline = document.querySelector('.cursor-outline');
             const clickables = document.querySelectorAll('a, button, .social-icon, .brand-logo, .btn-nav-cta, .hero-social-link, .floating-badge, .quick-chip, .tech-detail-card, .app-profile-card, .btn-copy-email, .btn-send-email');
 
-            window.addEventListener('mousemove', function(e) {
+            window.addEventListener('mousemove', function (e) {
                 const posX = e.clientX;
                 const posY = e.clientY;
 
@@ -2358,4 +2500,5 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 </body>
+
 </html>
