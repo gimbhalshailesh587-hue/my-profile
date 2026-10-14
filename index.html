@@ -1360,20 +1360,51 @@
             }
         }
 
+        @media (max-width: 1180px) and (min-width: 769px) {
+            .nav-container {
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1.1rem;
+                overflow-x: auto;
+                white-space: nowrap;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                padding: 0.3rem 0;
+                scrollbar-width: none;
+            }
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-links li {
+                flex-shrink: 0;
+            }
+            .nav-links li a {
+                font-size: 0.88rem;
+                white-space: nowrap;
+            }
+            .nav-cta-wrapper {
+                flex-shrink: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
-                padding: 0.65rem 4%;
+                padding: 0.6rem 4% 0.4rem 4%;
             }
 
             .nav-container {
+                display: flex;
                 flex-wrap: wrap;
-                gap: 0.5rem;
                 align-items: center;
+                justify-content: space-between;
+                gap: 0.5rem;
             }
 
             .brand-logo {
                 order: 1;
                 gap: 0.6rem;
+                flex-shrink: 0;
             }
 
             .logo-icon-box {
@@ -1395,31 +1426,54 @@
 
             .nav-cta-wrapper {
                 order: 2;
+                flex-shrink: 0;
             }
 
             .btn-nav-cta {
                 padding: 0.42rem 0.85rem;
                 font-size: 0.82rem;
+                white-space: nowrap;
             }
 
+            /* Scrollable Navigation Menu in Mobile */
             .nav-links {
                 order: 3;
                 width: 100%;
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.4rem;
-                padding-top: 0.45rem;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+                gap: 0.5rem;
+                padding: 0.45rem 0.2rem 0.4rem 0.2rem;
                 border-top: 1px solid #f1f5f9;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(0, 112, 243, 0.3) transparent;
+            }
+
+            .nav-links::-webkit-scrollbar {
+                height: 3px;
+            }
+
+            .nav-links::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .nav-links::-webkit-scrollbar-thumb {
+                background: rgba(0, 112, 243, 0.35);
+                border-radius: 999px;
             }
 
             .nav-links li {
+                flex-shrink: 0;
                 display: inline-flex;
             }
 
             .nav-links li a {
-                font-size: 0.78rem;
-                padding: 0.35rem 0.65rem;
+                font-size: 0.82rem;
+                padding: 0.4rem 0.8rem;
                 background: #f8fafc;
                 border: 1px solid #e2e8f0;
                 border-radius: 999px;
@@ -1439,7 +1493,7 @@
             }
 
             #hero {
-                padding-top: 9.8rem;
+                padding-top: 9.2rem;
             }
 
             .hero-cta-group {
