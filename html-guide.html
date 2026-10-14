@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Comprehensive Guide to HTML Navigation, Headings, Paragraphs, and Tables (tr, td, th) by Shailesh Gimbhal.">
+    <title>HTML Guide: Nav, Headings, Paragraphs & Tables | Shailesh Gimbhal</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --accent-primary: #0070f3;
+            --accent-secondary: #0ea5e9;
+            --accent-html: #e34f26;
+            --accent-green: #16a34a;
+            --accent-amber: #f59e0b;
+            --accent-purple: #8b5cf6;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+            --shadow-md: 0 4px 20px rgba(15, 23, 42, 0.06);
+            --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.08);
+            --radius-md: 14px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-primary);
+        }
+
+        /* Top Navigation Header */
+        header.site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid #f1f5f9;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+            transition: var(--transition);
+        }
+
+        .header-nav-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0.9rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            flex-shrink: 0;
+        }
+
+        .logo-icon-box {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-html);
+            border-radius: 9px;
+            box-shadow: 0 4px 12px rgba(227, 79, 38, 0.35);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.68rem;
+            color: var(--accent-html);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: var(--accent-html);
+            background: rgba(227, 79, 38, 0.08);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-page-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.5rem 1rem;
+            background: #f1f5f9;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .btn-page-link:hover {
+            background: var(--accent-primary);
+            color: #ffffff;
+            border-color: var(--accent-primary);
+        }
+
+        /* Hero Banner */
+        .page-hero {
+            padding: 7.5rem 5% 3.5rem;
+            background: linear-gradient(180deg, #fff7ed 0%, #ffffff 85%, var(--bg-color) 100%);
+            border-bottom: 1px solid #fed7aa;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.1rem;
+            background: rgba(227, 79, 38, 0.1);
+            border: 1px solid rgba(227, 79, 38, 0.3);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent-html);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.8px;
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight-orange {
+            background: linear-gradient(135deg, #e34f26 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 720px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.65;
+        }
+
+        .tag-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tag-pill i {
+            color: var(--accent-html);
+        }
+
+        /* Container & Section Layouts */
+        .content-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .topic-header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .topic-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            background: rgba(227, 79, 38, 0.1);
+            color: var(--accent-html);
+            border: 1px solid rgba(227, 79, 38, 0.25);
+        }
+
+        .topic-title {
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.6rem;
+        }
+
+        .topic-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Cards Grid */
+        .detail-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .detail-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #e34f26, #f97316);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: #cbd5e1;
+        }
+
+        .detail-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(227, 79, 38, 0.12);
+            color: var(--accent-html);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .card-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+
+        .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 1.4rem;
+            flex-grow: 1;
+        }
+
+        .card-desc ul {
+            padding-left: 1.2rem;
+            margin: 0.6rem 0;
+        }
+
+        .card-desc li {
+            margin-bottom: 0.4rem;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            font-size: 0.86rem;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        /* Code Block Box */
+        .code-box {
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .code-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0.9rem;
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .btn-copy {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .btn-copy:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .code-content {
+            padding: 0.9rem 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #f8fafc;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .hl-tag { color: #f43f5e; font-weight: 600; }
+        .hl-attr { color: #38bdf8; }
+        .hl-val { color: #a3e635; }
+        .hl-cmt { color: #64748b; font-style: italic; }
+
+        /* Preview Display */
+        .live-preview {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.1rem;
+        }
+
+        .preview-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .preview-badge i {
+            color: var(--accent-green);
+        }
+
+        .preview-box-render {
+            background: #ffffff;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        /* ==========================================
+           HTML TABLES STYLING
+           ========================================== */
+        .custom-demo-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .custom-demo-table th {
+            background: #f8fafc;
+            color: #0f172a;
+            font-weight: 700;
+            padding: 0.75rem 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.2px;
+        }
+
+        .custom-demo-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--text-secondary);
+        }
+
+        .custom-demo-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge-done { background: #dcfce7; color: #15803d; }
+        .badge-learning { background: #dbeafe; color: #1d4ed8; }
+
+        /* Full Interactive Table Builder / Playground */
+        #interactive-table-section {
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 4.5rem 5%;
+        }
+
+        .builder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            background: #0f172a;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .builder-pane {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .builder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #334155;
+            color: #cbd5e1;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .editor-textarea {
+            width: 100%;
+            height: 380px;
+            background: #1e293b;
+            color: #f8fafc;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            resize: vertical;
+            outline: none;
+        }
+
+        .editor-textarea:focus {
+            border-color: var(--accent-html);
+            box-shadow: 0 0 0 3px rgba(227, 79, 38, 0.25);
+        }
+
+        .render-pane {
+            width: 100%;
+            height: 380px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            padding: 1.5rem;
+            overflow: auto;
+            color: #0f172a;
+        }
+
+        /* Preset buttons */
+        .preset-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .preset-btn {
+            padding: 0.45rem 1rem;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .preset-btn.active,
+        .preset-btn:hover {
+            background: var(--accent-html);
+            color: #ffffff;
+            border-color: var(--accent-html);
+        }
+
+        /* Quick Navigation Bar Demo */
+        .demo-nav-bar {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .demo-nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .demo-nav-links a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+
+        .demo-nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Toast */
+        .toast-box {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.8rem 1.4rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            border-left: 4px solid var(--accent-green);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+        }
+
+        .toast-box.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: #0b1120;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3.5rem 5% 2.5rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .builder-grid {
+                grid-template-columns: 1fr;
+            }
+            .editor-textarea,
+            .render-pane {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 1180px) and (min-width: 769px) {
+            .nav-links {
+                overflow-x: auto;
+                white-space: nowrap;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 0.8rem;
+            }
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-links li {
+                flex-shrink: 0;
+            }
+            .nav-actions {
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header.site-header {
+                padding: 0.2rem 0;
+            }
+            .header-nav-container {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0.5rem 4%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .brand-logo {
+                gap: 0.5rem;
+                flex-shrink: 0;
+            }
+            .brand-name {
+                font-size: 1.05rem;
+            }
+            .brand-badge {
+                font-size: 0.62rem;
+            }
+            .nav-actions {
+                gap: 0.4rem;
+                flex-shrink: 0;
+            }
+            .btn-page-link {
+                padding: 0.38rem 0.75rem;
+                font-size: 0.78rem;
+                gap: 0.3rem;
+                white-space: nowrap;
+            }
+            /* Horizontal Scrollable Nav Links */
+            .nav-links {
+                width: 100%;
+                order: 3;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+                gap: 0.45rem;
+                padding: 0.4rem 0.1rem 0.35rem 0.1rem;
+                border-top: 1px solid #f1f5f9;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(227, 79, 38, 0.35) transparent;
+            }
+            .nav-links::-webkit-scrollbar {
+                height: 3px;
+            }
+            .nav-links::-webkit-scrollbar-thumb {
+                background: rgba(227, 79, 38, 0.35);
+                border-radius: 999px;
+            }
+            .nav-links li {
+                flex-shrink: 0;
+                display: inline-flex;
+            }
+            .nav-links li a {
+                font-size: 0.8rem;
+                padding: 0.38rem 0.75rem;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 999px;
+                white-space: nowrap;
+            }
+            .page-hero {
+                padding-top: 9.2rem;
+            }
+            .detail-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .preset-bar {
+                gap: 0.4rem;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                padding: 0.3rem 0;
+                scrollbar-width: none;
+            }
+            .preset-btn {
+                padding: 0.38rem 0.75rem;
+                font-size: 0.78rem;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav-container {
+                padding: 0.4rem 3%;
+            }
+            .brand-name {
+                font-size: 0.92rem;
+            }
+            .brand-badge {
+                display: none;
+            }
+            .btn-page-link {
+                padding: 0.32rem 0.55rem;
+                font-size: 0.74rem;
+            }
+            .nav-links {
+                gap: 0.28rem;
+            }
+            .nav-links li a {
+                font-size: 0.72rem;
+                padding: 0.28rem 0.48rem;
+                gap: 0.25rem;
+            }
+            .page-hero {
+                padding-top: 9.2rem;
+            }
+            .tag-strip {
+                gap: 0.35rem;
+            }
+            .tag-pill {
+                font-size: 0.74rem;
+                padding: 0.3rem 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation Bar -->
+    <header class="site-header">
+        <div class="header-nav-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo" title="Back to Portfolio">
+                <div class="logo-icon-box">
+                    <span>HTML</span>
+                </div>
+                <div>
+                    <span class="brand-name">Shailesh Gimbhal</span>
+                    <span class="brand-badge"><i class="fas fa-tags"></i> HTML CHEAT SHEET</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                <li><a href="#nav-concept"><i class="fas fa-compass"></i> <span>Navigation &amp; Header</span></a></li>
+                <li><a href="#headings-paragraphs"><i class="fas fa-heading"></i> <span>&lt;h1&gt; &amp; &lt;p&gt;</span></a></li>
+                <li><a href="#tables-concept"><i class="fas fa-table"></i> <span>Tables (&lt;tr&gt;, &lt;td&gt;)</span></a></li>
+                <li><a href="#interactive-table-section"><i class="fas fa-laptop-code"></i> <span>Playground</span></a></li>
+            </ul>
+
+            <!-- Nav Actions to Open in Different Page / Return -->
+            <div class="nav-actions">
+                <a href="learning.html" class="btn-page-link" title="Open CSS Guide &amp; Full Playground">
+                    <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+                    <span>CSS Guide</span>
+                </a>
+                <a href="index.html" class="btn-page-link" style="background: var(--accent-html); color: white; border-color: var(--accent-html);">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+        <div class="hero-inner">
+            <div class="hero-badge">
+                <i class="fab fa-html5"></i> Dedicated HTML Mastery Page
+            </div>
+            <h1 class="hero-title">
+                Mastering <span class="highlight-orange">Navigation, Headings, Paragraphs &amp; Tables</span>
+            </h1>
+            <p class="hero-desc">
+                Everything you need to know about structuring webpages: how headers and navigation work to open different pages, heading hierarchies (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>), paragraphs (<code>&lt;p&gt;</code>), and data tables (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>).
+            </p>
+
+            <div class="tag-strip">
+                <span class="tag-pill"><i class="fas fa-compass"></i> &lt;header&gt; &amp; &lt;nav&gt;</span>
+                <span class="tag-pill"><i class="fas fa-link"></i> &lt;a href="" target="_blank"&gt;</span>
+                <span class="tag-pill"><i class="fas fa-heading"></i> Headings &lt;h1&gt; to &lt;h6&gt;</span>
+                <span class="tag-pill"><i class="fas fa-paragraph"></i> Paragraphs &lt;p&gt;</span>
+                <span class="tag-pill"><i class="fas fa-table"></i> &lt;table&gt; Architecture</span>
+                <span class="tag-pill"><i class="fas fa-bars"></i> Rows &lt;tr&gt;</span>
+                <span class="tag-pill"><i class="fas fa-columns"></i> Data Cells &lt;td&gt; &amp; &lt;th&gt;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="content-wrap">
+
+        <!-- ==========================================
+             SECTION 1: HEADER & NAVIGATION (OPENING DIFFERENT PAGES)
+             ========================================== -->
+        <section id="nav-concept">
+            <div class="topic-header">
+                <span class="topic-pill"><i class="fas fa-compass"></i> Concept 1 &bull; Navigation</span>
+                <h2 class="topic-title">&lt;header&gt;, &lt;nav&gt;, &amp; Opening Different Pages</h2>
+                <p class="topic-subtitle">How navigation headers are constructed and how to make links open pages internally or in a new browser tab.</p>
+            </div>
+
+            <div class="detail-cards-grid">
+                <!-- Nav Bar Anatomy Card -->
+                <div class="detail-card">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fas fa-bars"></i></div>
+                        <div>
+                            <div class="card-tagline">Header & Nav Structure</div>
+                            <h3 class="card-title">&lt;header&gt; &amp; &lt;nav&gt; Elements</h3>
+                        </div>
+                    </div>
+                    <div class="card-desc">
+                        <p>Semantic navigation elements give structure to your top menu:</p>
+                        <ul>
+                            <li><strong><code>&lt;header&gt;</code>:</strong> Contains logos, branding, search bars, and the top navigation.</li>
+                            <li><strong><code>&lt;nav&gt;</code>:</strong> Tells the browser, search engines, and screen readers that this block contains main site navigation.</li>
+                            <li><strong><code>&lt;ul&gt;</code> &amp; <code>&lt;li&gt;</code>:</strong> An unordered list of navigational destinations.</li>
+                        </ul>
+                    </div>
+                    <div class="code-box">
+                        <div class="code-box-header">
+                            <span>Navigation Bar HTML</span>
+                            <button class="btn-copy" onclick="copySnippet(this)"><i class="far fa-copy"></i> Copy</button>
+                        </div>
+                        <div class="code-content"><span class="hl-tag">&lt;header&gt;</span>
+  <span class="hl-tag">&lt;nav&gt;</span>
+    <span class="hl-tag">&lt;ul&gt;</span>
+      <span class="hl-tag">&lt;li&gt;&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"index.html"</span><span class="hl-tag">&gt;</span>Home<span class="hl-tag">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="hl-tag">&lt;li&gt;&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"html-guide.html"</span><span class="hl-tag">&gt;</span>HTML Guide<span class="hl-tag">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="hl-tag">&lt;li&gt;&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"learning.html"</span><span class="hl-tag">&gt;</span>CSS Guide<span class="hl-tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="hl-tag">&lt;/ul&gt;</span>
+  <span class="hl-tag">&lt;/nav&gt;</span>
+<span class="hl-tag">&lt;/header&gt;</span></div>
+                    </div>
+                </div>
+
+                <!-- Opening in Different Page / Tab Card -->
+                <div class="detail-card">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                        <div>
+                            <div class="card-tagline">Link Navigation</div>
+                            <h3 class="card-title">Opening Different Pages (<code>target="_blank"</code>)</h3>
+                        </div>
+                    </div>
+                    <div class="card-desc">
+                        <p>When you click an anchor link, you can choose <em>how</em> it opens:</p>
+                        <ul>
+                            <li><strong>Same Tab (Default):</strong> <code>&lt;a href="html-guide.html"&gt;</code> replaces current page in same window.</li>
+                            <li><strong>New Tab / Different Page:</strong> <code>&lt;a href="html-guide.html" target="_blank" rel="noopener noreferrer"&gt;</code> opens the destination in a brand new tab!</li>
+                            <li><strong>Security best practice:</strong> Always use <code>rel="noopener noreferrer"</code> when using <code>target="_blank"</code>.</li>
+                        </ul>
+                    </div>
+                    <div class="code-box">
+                        <div class="code-box-header">
+                            <span>Open in New Tab vs Same Page</span>
+                            <button class="btn-copy" onclick="copySnippet(this)"><i class="far fa-copy"></i> Copy</button>
+                        </div>
+                        <div class="code-content"><span class="hl-cmt">&lt;!-- Opens in a DIFFERENT TAB/PAGE --&gt;</span>
+<span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"learning.html"</span> 
+   <span class="hl-attr">target</span>=<span class="hl-val">"_blank"</span> 
+   <span class="hl-attr">rel</span>=<span class="hl-val">"noopener noreferrer"</span><span class="hl-tag">&gt;</span>
+   Open CSS Guide in New Tab ↗
+<span class="hl-tag">&lt;/a&gt;</span></div>
+                    </div>
+                    <div class="live-preview">
+                        <div class="preview-badge"><i class="fas fa-eye"></i> Clickable Live Preview:</div>
+                        <div class="preview-box-render">
+                            <div class="demo-nav-bar">
+                                <strong>My Site Menu:</strong>
+                                <ul class="demo-nav-links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="learning.html" target="_blank">CSS Guide (Opens New Tab ↗)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 2: HEADINGS & PARAGRAPHS
+             ========================================== -->
+        <section id="headings-paragraphs">
+            <div class="topic-header">
+                <span class="topic-pill"><i class="fas fa-heading"></i> Concept 2 &bull; Typography</span>
+                <h2 class="topic-title">Headings (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>) &amp; Paragraphs (<code>&lt;p&gt;</code>)</h2>
+                <p class="topic-subtitle">Organizing text content clearly for humans and search engine crawlers.</p>
+            </div>
+
+            <div class="detail-cards-grid">
+                <!-- Headings Hierarchy Card -->
+                <div class="detail-card">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fas fa-heading"></i></div>
+                        <div>
+                            <div class="card-tagline">Content Structure</div>
+                            <h3 class="card-title">Headings Hierarchy (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>)</h3>
+                        </div>
+                    </div>
+                    <div class="card-desc">
+                        <p>Headings define sections and sub-topics on a web page:</p>
+                        <ul>
+                            <li><strong><code>&lt;h1&gt;</code>:</strong> The main heading of the page. Crucial for SEO. Recommended only 1 per page.</li>
+                            <li><strong><code>&lt;h2&gt;</code>:</strong> Major section headers (e.g., "About Me", "Skills", "Contact").</li>
+                            <li><strong><code>&lt;h3&gt;</code>:</strong> Sub-sections inside an <code>&lt;h2&gt;</code> (e.g., card titles).</li>
+                            <li><strong><code>&lt;h4&gt;</code> to <code>&lt;h6&gt;</code>:</strong> Deeper sub-headings for fine granular hierarchy.</li>
+                        </ul>
+                    </div>
+                    <div class="code-box">
+                        <div class="code-box-header">
+                            <span>Headings Hierarchy Code</span>
+                            <button class="btn-copy" onclick="copySnippet(this)"><i class="far fa-copy"></i> Copy</button>
+                        </div>
+                        <div class="code-content"><span class="hl-tag">&lt;h1&gt;</span>Shailesh Gimbhal - Web Developer<span class="hl-tag">&lt;/h1&gt;</span>
+<span class="hl-tag">&lt;h2&gt;</span>Frontend Technical Skills<span class="hl-tag">&lt;/h2&gt;</span>
+<span class="hl-tag">&lt;h3&gt;</span>HTML5 &amp; Semantic Web<span class="hl-tag">&lt;/h3&gt;</span>
+<span class="hl-tag">&lt;h4&gt;</span>Headings, Paragraphs &amp; Tables<span class="hl-tag">&lt;/h4&gt;</span></div>
+                    </div>
+                </div>
+
+                <!-- Paragraphs & Formatting Card -->
+                <div class="detail-card">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fas fa-paragraph"></i></div>
+                        <div>
+                            <div class="card-tagline">Body Text</div>
+                            <h3 class="card-title">Paragraphs (<code>&lt;p&gt;</code>), <code>&lt;br&gt;</code> &amp; <code>&lt;hr&gt;</code></h3>
+                        </div>
+                    </div>
+                    <div class="card-desc">
+                        <p>Paragraphs format running blocks of prose:</p>
+                        <ul>
+                            <li><strong><code>&lt;p&gt;</code>:</strong> Creates a block element with standard top and bottom margins.</li>
+                            <li><strong><code>&lt;br&gt;</code> (Break):</strong> Forces a single line-break without creating a whole new paragraph.</li>
+                            <li><strong><code>&lt;hr&gt;</code> (Horizontal Rule):</strong> Creates a clean dividing horizontal line between topics.</li>
+                            <li><strong>Inline styles:</strong> <code>&lt;strong&gt;</code> for bold text, <code>&lt;em&gt;</code> for italics.</li>
+                        </ul>
+                    </div>
+                    <div class="code-box">
+                        <div class="code-box-header">
+                            <span>Paragraphs &amp; Breaks</span>
+                            <button class="btn-copy" onclick="copySnippet(this)"><i class="far fa-copy"></i> Copy</button>
+                        </div>
+                        <div class="code-content"><span class="hl-tag">&lt;p&gt;</span>
+  I am learning <span class="hl-tag">&lt;strong&gt;</span>HTML5<span class="hl-tag">&lt;/strong&gt;</span> and building responsive websites.<span class="hl-tag">&lt;br&gt;</span>
+  Line breaks keep sentences on the next line.
+<span class="hl-tag">&lt;/p&gt;</span>
+<span class="hl-tag">&lt;hr&gt;</span>
+<span class="hl-tag">&lt;p&gt;</span>This is a separate paragraph below the divider.<span class="hl-tag">&lt;/p&gt;</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: HTML TABLES (<table>, <tr>, <td>, <th>)
+             ========================================== -->
+        <section id="tables-concept">
+            <div class="topic-header">
+                <span class="topic-pill"><i class="fas fa-table"></i> Concept 3 &bull; Data Representation</span>
+                <h2 class="topic-title">HTML Tables: <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code></h2>
+                <p class="topic-subtitle">Learn how to arrange tabular data cleanly with rows, columns, and styled headers.</p>
+            </div>
+
+            <div class="detail-cards-grid">
+                <!-- Table Architecture Card -->
+                <div class="detail-card">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fas fa-th-list"></i></div>
+                        <div>
+                            <div class="card-tagline">Table Tag Breakdown</div>
+                            <h3 class="card-title">Anatomy of an HTML Table</h3>
+                        </div>
+                    </div>
+                    <div class="card-desc">
+                        <p>Tables are composed of several nested tags working together:</p>
+                        <ul>
+                            <li><strong><code>&lt;table&gt;</code>:</strong> The wrapper container for all table rows and cells.</li>
+                            <li><strong><code>&lt;tr&gt;</code> (Table Row):</strong> Defines a horizontal row across the table.</li>
+                            <li><strong><code>&lt;th&gt;</code> (Table Header):</strong> Defines a header cell (automatically bold &amp; centered by default).</li>
+                            <li><strong><code>&lt;td&gt;</code> (Table Data):</strong> Defines a standard content cell containing text, links, or numbers.</li>
+                            <li><strong><code>&lt;thead&gt;</code> &amp; <code>&lt;tbody&gt;</code>:</strong> Groups header and body rows for semantic clarity.</li>
+                        </ul>
+                    </div>
+                    <div class="code-box">
+                        <div class="code-box-header">
+                            <span>Table Code Structure</span>
+                            <button class="btn-copy" onclick="copySnippet(this)"><i class="far fa-copy"></i> Copy</button>
+                        </div>
+                        <div class="code-content"><span class="hl-tag">&lt;table</span> <span class="hl-attr">border</span>=<span class="hl-val">"1"</span><span class="hl-tag">&gt;</span>
+  <span class="hl-tag">&lt;thead&gt;</span>
+    <span class="hl-tag">&lt;tr&gt;</span>
+      <span class="hl-tag">&lt;th&gt;</span>Skill<span class="hl-tag">&lt;/th&gt;</span>
+      <span class="hl-tag">&lt;th&gt;</span>Level<span class="hl-tag">&lt;/th&gt;</span>
+    <span class="hl-tag">&lt;/tr&gt;</span>
+  <span class="hl-tag">&lt;/thead&gt;</span>
+  <span class="hl-tag">&lt;tbody&gt;</span>
+    <span class="hl-tag">&lt;tr&gt;</span>
+      <span class="hl-tag">&lt;td&gt;</span>HTML5<span class="hl-tag">&lt;/td&gt;</span>
+      <span class="hl-tag">&lt;td&gt;</span>Advanced<span class="hl-tag">&lt;/td&gt;</span>
+    <span class="hl-tag">&lt;/tr&gt;</span>
+  <span class="hl-tag">&lt;/tbody&gt;</span>
+<span class="hl-tag">&lt;/table&gt;</span></div>
+                    </div>
+                </div>
+
+                <!-- Modern Styled Table Card -->
+                <div class="detail-card">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                        <div>
+                            <div class="card-tagline">Visual Presentation</div>
+                            <h3 class="card-title">Live Styled Table Example</h3>
+                        </div>
+                    </div>
+                    <div class="card-desc">
+                        <p>With CSS <code>border-collapse: collapse;</code> and soft row padding, HTML tables look modern and professional:</p>
+                    </div>
+                    <div class="live-preview" style="margin-bottom: 1.2rem;">
+                        <div class="preview-badge"><i class="fas fa-check-circle"></i> Rendered Output:</div>
+                        <div class="preview-box-render">
+                            <table class="custom-demo-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tag</th>
+                                        <th>Full Name</th>
+                                        <th>Purpose</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>&lt;h1&gt;</code></td>
+                                        <td>Heading 1</td>
+                                        <td>Top-level page title</td>
+                                        <td><span class="status-badge badge-done">Mastered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;p&gt;</code></td>
+                                        <td>Paragraph</td>
+                                        <td>Main text block</td>
+                                        <td><span class="status-badge badge-done">Mastered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;tr&gt;</code></td>
+                                        <td>Table Row</td>
+                                        <td>Horizontal row</td>
+                                        <td><span class="status-badge badge-done">Mastered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;td&gt;</code></td>
+                                        <td>Table Data</td>
+                                        <td>Standard data cell</td>
+                                        <td><span class="status-badge badge-done">Mastered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>&lt;th&gt;</code></td>
+                                        <td>Table Header</td>
+                                        <td>Column title cell</td>
+                                        <td><span class="status-badge badge-done">Mastered</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #64748b;">
+                        <i class="fas fa-lightbulb" style="color: #f59e0b;"></i> <strong>Pro Tip:</strong> Always set <code>border-collapse: collapse;</code> in CSS so adjacent cell borders merge into single crisp lines.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         SECTION 4: INTERACTIVE TABLE PLAYGROUND
+         ========================================== -->
+    <section id="interactive-table-section">
+        <div class="content-wrap" style="padding-top: 0; padding-bottom: 0;">
+            <div class="topic-header">
+                <span class="topic-pill" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.25);">
+                    <i class="fas fa-terminal"></i> Interactive Lab
+                </span>
+                <h2 class="topic-title">Live HTML Table &amp; Navigation Editor</h2>
+                <p class="topic-subtitle">Edit the code on the left to add your own rows (<code>&lt;tr&gt;</code>) or cells (<code>&lt;td&gt;</code>) and see the changes live!</p>
+            </div>
+
+            <!-- Presets -->
+            <div class="preset-bar">
+                <button class="preset-btn active" onclick="loadTablePreset('skills')">
+                    <i class="fas fa-table"></i> Student Skills Table
+                </button>
+                <button class="preset-btn" onclick="loadTablePreset('pricing')">
+                    <i class="fas fa-tags"></i> Service Price Table
+                </button>
+                <button class="preset-btn" onclick="loadTablePreset('navmenu')">
+                    <i class="fas fa-compass"></i> Navigation Header Bar
+                </button>
+            </div>
+
+            <div class="builder-grid">
+                <!-- Editor -->
+                <div class="builder-pane">
+                    <div class="builder-header">
+                        <span><i class="fas fa-code"></i> HTML Code Editor</span>
+                        <button class="btn-copy" onclick="copyTableCode()"><i class="far fa-copy"></i> Copy Code</button>
+                    </div>
+                    <textarea id="tableCodeEditor" class="editor-textarea" spellcheck="false" oninput="refreshTablePreview()"></textarea>
+                </div>
+
+                <!-- Preview -->
+                <div class="builder-pane">
+                    <div class="builder-header">
+                        <span><i class="fas fa-play-circle" style="color: var(--accent-green);"></i> Real-Time Live Render</span>
+                        <span style="font-size: 0.75rem; color: #94a3b8;"><i class="fas fa-bolt"></i> Instant Preview</span>
+                    </div>
+                    <div id="tablePreviewPane" class="render-pane"></div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 1rem;">
+                <span style="font-size: 0.85rem; color: #64748b;">
+                    <i class="fas fa-info-circle"></i> Try modifying row contents or adding a new <code>&lt;tr&gt;&lt;td&gt;...&lt;/td&gt;&lt;/tr&gt;</code>!
+                </span>
+                <button class="btn-page-link" style="background: var(--accent-html); color: white; border-color: var(--accent-html); cursor: pointer;" onclick="refreshTablePreview()">
+                    <i class="fas fa-sync-alt"></i> Refresh Preview
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Shailesh Gimbhal &bull; Frontend Web Developer</p>
+        <p>
+            <a href="index.html">Main Portfolio</a> &bull; 
+            <a href="learning.html">CSS &amp; Styling Guide</a> &bull; 
+            <a href="html-guide.html">HTML &amp; Tables Guide</a>
+        </p>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toastBox" class="toast-box">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Snippet copied!</span>
+    </div>
+
+    <!-- Script -->
+    <script>
+        const tablePresets = {
+            skills: `<!-- HTML Table with <thead>, <tbody>, <tr>, <th> and <td> -->
+<table style="width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 14px;">
+  <thead>
+    <tr style="background: #e34f26; color: white;">
+      <th style="padding: 10px; border: 1px solid #fed7aa; text-align: left;">Skill / Topic</th>
+      <th style="padding: 10px; border: 1px solid #fed7aa; text-align: left;">Tag</th>
+      <th style="padding: 10px; border: 1px solid #fed7aa; text-align: left;">Proficiency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background: #fff7ed;">
+      <td style="padding: 10px; border: 1px solid #fed7aa;">Main Heading</td>
+      <td style="padding: 10px; border: 1px solid #fed7aa;"><code>&lt;h1&gt;</code></td>
+      <td style="padding: 10px; border: 1px solid #fed7aa; color: #16a34a; font-weight: bold;">100% Mastered</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #fed7aa;">Paragraph Text</td>
+      <td style="padding: 10px; border: 1px solid #fed7aa;"><code>&lt;p&gt;</code></td>
+      <td style="padding: 10px; border: 1px solid #fed7aa; color: #16a34a; font-weight: bold;">100% Mastered</td>
+    </tr>
+    <tr style="background: #fff7ed;">
+      <td style="padding: 10px; border: 1px solid #fed7aa;">Table Rows</td>
+      <td style="padding: 10px; border: 1px solid #fed7aa;"><code>&lt;tr&gt;</code></td>
+      <td style="padding: 10px; border: 1px solid #fed7aa; color: #0070f3; font-weight: bold;">Practicing Now</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #fed7aa;">Data Cells</td>
+      <td style="padding: 10px; border: 1px solid #fed7aa;"><code>&lt;td&gt;</code></td>
+      <td style="padding: 10px; border: 1px solid #fed7aa; color: #0070f3; font-weight: bold;">Practicing Now</td>
+    </tr>
+  </tbody>
+</table>`,
+
+            pricing: `<!-- Web Design Packages Table -->
+<table style="width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 14px;">
+  <thead>
+    <tr style="background: #0f172a; color: white;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Plan</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Features</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Delivery</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Single Page</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">HTML5 Semantic Structure + CSS</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">2 Days</td>
+    </tr>
+    <tr style="background: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Multi-Page</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Header, Nav, Tables &amp; Forms</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">4 Days</td>
+    </tr>
+  </tbody>
+</table>`,
+
+            navmenu: `<!-- Navigation Header with Links Opening Different Pages -->
+<header style="background: #0f172a; padding: 15px 20px; border-radius: 8px; font-family: sans-serif;">
+  <nav style="display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: white; font-weight: bold; font-size: 18px;">Shailesh Dev</span>
+    <div style="display: flex; gap: 15px;">
+      <a href="index.html" style="color: #94a3b8; text-decoration: none;">Home</a>
+      <!-- target="_blank" opens in a brand new page/tab -->
+      <a href="html-guide.html" target="_blank" style="color: #f97316; text-decoration: underline; font-weight: bold;">
+        HTML &amp; Tables ↗
+      </a>
+      <a href="learning.html" target="_blank" style="color: #38bdf8; text-decoration: none;">
+        CSS Guide ↗
+      </a>
+    </div>
+  </nav>
+</header>
+<p style="font-family: sans-serif; font-size: 13px; color: #64748b; margin-top: 10px;">
+  Clicking the orange link above will open the page in a brand new tab!
+</p>`
+        };
+
+        const editorArea = document.getElementById('tableCodeEditor');
+        const previewArea = document.getElementById('tablePreviewPane');
+
+        function refreshTablePreview() {
+            if (!editorArea || !previewArea) return;
+            previewArea.innerHTML = editorArea.value;
+        }
+
+        function loadTablePreset(presetKey) {
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                const btn = event.target.closest('.preset-btn');
+                if (btn) btn.classList.add('active');
+            }
+            if (tablePresets[presetKey]) {
+                editorArea.value = tablePresets[presetKey];
+                refreshTablePreview();
+            }
+        }
+
+        function copySnippet(btn) {
+            const card = btn.closest('.detail-card');
+            const code = card ? card.querySelector('.code-content') : null;
+            if (code) {
+                navigator.clipboard.writeText(code.innerText).then(() => {
+                    showToastMsg("Code copied to clipboard!");
+                });
+            }
+        }
+
+        function copyTableCode() {
+            if (editorArea) {
+                navigator.clipboard.writeText(editorArea.value).then(() => {
+                    showToastMsg("Editor code copied!");
+                });
+            }
+        }
+
+        function showToastMsg(msg) {
+            const toast = document.getElementById('toastBox');
+            const toastTxt = document.getElementById('toastMessage');
+            if (toastTxt) toastTxt.textContent = msg;
+            if (toast) {
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2500);
+            }
+        }
+
+        // Initialize with default preset
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTablePreset('skills');
+        });
+    </script>
+</body>
+</html>
